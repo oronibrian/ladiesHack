@@ -1,5 +1,7 @@
 package com.example.oroni.ladieshack;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
               String  phoneNo[] ={"0719740169".toString().trim(),"0726832378".toString().trim(),
-                      "0711466511".toString().trim(),"0718482199".toString().trim()};
+                      "0711466511".toString().trim(),"0718482199".toString().trim(),"0702357053".toString().trim()};
                 String message = "please Help me am in danger";
                 for (int i = 0; i < phoneNo.length; i++)
 
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity
                             Toast.LENGTH_LONG).show();
                     e.printStackTrace();
             }
+                startAlert();
             }
         });
 
@@ -119,4 +122,14 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void startAlert() {
+        Intent intent = new Intent(this, AlarmBroadcastReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                this.getApplicationContext(), 234324243, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
+                + (3 * 1000), pendingIntent);
+    }
+
 }
