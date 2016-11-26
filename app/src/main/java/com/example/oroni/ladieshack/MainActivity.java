@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentManager;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
 import android.view.View;
@@ -123,7 +124,13 @@ public class MainActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_hotlines) {
+            //mystuff
+            Hotline myfrag = new Hotline();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.content_main, myfrag,
+                    myfrag.getTag()).commit();
+
 
         } else if (id == R.id.nav_manage) {
 

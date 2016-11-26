@@ -6,4 +6,23 @@
 
     <string name="action_settings">Settings</string>
     <string name="add_danger_zone">Add danger zone</string>
+    <string name="search_hotlines">Search Hotlines</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="national_hotlines">
+        <item>RedCross  4564646131</item>
+        <item>St. Johns Ambulance 63379</item>
+        <item>Nairobi OCPD</item>
+        <item>Control Room</item>
+        <item>OCS Industrial Area</item>
+        <item>OCS Wilson Airpot</item>
+        <item>Flying Squad Head</item>
+        <item>Banking Fraud</item>
+        <item>Traffic Commandant</item>
+        <item>DTO Kilimani</item>
+        <item>Disaster Management</item>
+        <item>OCPD Starehe</item>
+    </string-array>
 </resources>
