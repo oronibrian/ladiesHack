@@ -122,7 +122,11 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_safety_tips) {
+            SafetyTips tipsfrag = new SafetyTips();
+            FragmentManager manager = getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.content_main, tipsfrag,
+                    tipsfrag.getTag()).commit();
 
         } else if (id == R.id.nav_hotlines) {
             //mystuff

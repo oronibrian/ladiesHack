@@ -56,6 +56,7 @@ public class Hotline extends Fragment {
             inputSearch = (EditText) myview.findViewById(R.id.inputSearch);
 
             // Adding items to listview
+            // do this later, for multiple row listview http://www.technotalkative.com/android-listview-3-custom-listview/
             adapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item, R.id.product_name, hotlines_list);
             lv.setAdapter(adapter);
 
