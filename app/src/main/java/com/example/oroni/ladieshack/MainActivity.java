@@ -8,9 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.FragmentManager;
-import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -21,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -36,6 +34,9 @@ public class MainActivity extends AppCompatActivity
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+    Button btndangerzones;
+    Button btnAddDangerZonesDialog;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,24 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        btndangerzones =(Button)findViewById(R.id.btnadddangerzone_id);
+        btnAddDangerZonesDialog=(Button)findViewById(R.id.btnAddDangerZonesDialog_id);
+
+        btnAddDangerZonesDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAddProductDialog();
+
+            }
+        });
+
+        btndangerzones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,NairobiDangerzone.class));
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -76,7 +95,7 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+       // navigationView.setNavigationItemSelectedListener(this);
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
@@ -122,19 +141,9 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_safety_tips) {
-            SafetyTips tipsfrag = new SafetyTips();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.content_main, tipsfrag,
-                    tipsfrag.getTag()).commit();
+        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_hotlines) {
-            //mystuff
-            Hotline myfrag = new Hotline();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.content_main, myfrag,
-                    myfrag.getTag()).commit();
-
+        } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 
@@ -192,5 +201,10 @@ public class MainActivity extends AppCompatActivity
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
+    }
+
+    private void showAddProductDialog() {
+        AddDangerZonesDialog newFragment = new AddDangerZonesDialog();
+        newFragment.show(getFragmentManager(), getString(R.string.add_location));
     }
 }
