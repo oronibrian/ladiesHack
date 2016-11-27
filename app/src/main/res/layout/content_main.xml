@@ -10,22 +10,34 @@
     tools:showIn="@layout/app_bar_main"
     tools:context="com.example.oroni.ladieshack.MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/btnadddangerzone_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="@+id/content_main"
-        app:layout_constraintLeft_toLeftOf="@+id/content_main"
-        app:layout_constraintRight_toRightOf="@+id/content_main"
-        app:layout_constraintTop_toTopOf="@+id/content_main" />
+        android:text="View Danger Zones"
+        tools:ignore="MissingConstraints"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddDangerZonesDialog_id"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp" />
 
     <Button
-        android:id="@+id/btnadddangerzone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_danger_zone"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="278dp"
-        tools:ignore="MissingConstraints" />
+        android:text="Add danger zones"
+        android:id="@+id/btnAddDangerZonesDialog_id"
+        tools:layout_editor_absoluteY="4dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="16dp" />
 
 </android.support.constraint.ConstraintLayout>
